@@ -1,0 +1,1 @@
+{"dependencies":[["vagrant-disksize",["= 0.1.3"]],["vagrant-qemu",["= 0.3.9"]]],"checksum":"84a86c7d714e7b818dc357b022c5f589d34fd09fe3f5460b6eb9f3036b9fe229","vagrant_version":"2.4.3"}

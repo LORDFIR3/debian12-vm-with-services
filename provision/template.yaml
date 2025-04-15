@@ -1,0 +1,82 @@
+zabbix_export:
+  version: "5.0"
+  date: "2025-04-12T00:00:00Z"
+  templates:
+    - template: "Linux_server_and_services"
+      name: "Linux_server_and_services"
+      groups:
+        - name: "Templates"  # Make sure this group exists in your Zabbix instance
+      description: "Custom Template monitoring CPU load, memory usage, disk usage and services status"
+      items:
+        - name: "CPU Load (avg1)"
+          key: "system.cpu.load[percpu,avg1]"
+          delay: "30s"
+          history: "90d"
+          trends: "365d"
+          value_type: FLOAT
+          description: "Average CPU load"
+
+        - name: "Memory Usage (%)"
+          key: "vm.memory.size[available]"
+          delay: "30s"
+          history: "90d"
+          trends: "365d"
+          value_type: UNSIGNED
+          description: "Used memory percentage"
+
+        - name: "Disk Usage (%)"
+          key: "vfs.fs.size[/,pused]"
+          delay: "30s"
+          history: "90d"
+          trends: "365d"
+          value_type: FLOAT
+          description: "Root filesystem usage"
+
+        - name: "Zabbix Server Status"
+          key: "zabbix-server.status"
+          delay: "5s"
+          history: "90d"
+          trends: "365d"
+          value_type: CHAR
+          description: 'Returns Zabbix Server status ("active/inactive")'
+
+        - name: "Jenkins Service Status"
+          key: "jenkins.status"
+          delay: "5s"
+          history: "90d"
+          trends: "365d"
+          value_type: CHAR
+          description: 'Returns Jenkins status ("active/inactive")'
+
+        - name: "Vault Service Status"
+          key: "vault.status"
+          delay: "5s"
+          history: "90d"
+          trends: "365d"
+          value_type: CHAR
+          description: 'Returns Vault status ("active/inactive")'
+
+  triggers:
+        - name: "Zabbix is down"
+          expression: "{Linux_server_and_services:zabbix-server.status.last()}=inactive"
+          priority: HIGH
+
+        - name: "Jenkins is down"
+          expression: "{Linux_server_and_services:jenkins.status.last()}=inactive"
+          priority: HIGH
+
+        - name: "Vault is down"
+          expression: "{Linux_server_and_services:vault.status.last()}=inactive"
+          priority: HIGH
+
+        - name: "High CPU Load"
+          expression: "{Linux_server_and_services:system.cpu.load[percpu,avg1].last()}>4"
+          priority: WARNING
+
+        - name: "High Disk Usage"
+          expression: "{Linux_server_and_services:vfs.fs.size[/,pused].last()}>80"
+          priority: WARNING
+
+        - name: "High Memory Usage"
+          expression: "{Linux-server_and_services:vm.memory.size[pused].last()}>85"
+          priority: WARNING
