@@ -5,8 +5,8 @@ Vagrant.configure("2") do |config|
 	config.vm.provider "virtualbox" do |vb|
 		vb.memory = "2048"
 		vb.cpus = 2
-		vb.customize ["modifyvm", :id, "--name", "test-vm"]
-		vb.customize ["createhd", "--filename", "TEST.vdi", "--size", 20480] # Set 20GB disk
+		vb.customize ["modifyvm", :id, "--name", "debian12-vm"]
+		vb.customize ["createhd", "--filename", "debian12-vm.vdi", "--size", 20480] # Set 20GB disk
 	end
 
 	# Port forwarding for Zabbix frontend
@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
 	# Vm provisioning script
 	config.vm.provision "shell", path: "./provision/install_zabbix.sh"
 	config.vm.provision "shell", path: "./provision/install_vault.sh"
-	config.vm.provision "shell", path: "./provision/install_jenkins.sh"
+	config.vm.provision "shell", path: "./provision/setup_jenkins.sh"
 	config.vm.provision "shell", path: "./provision/map_services.sh"
 	config.vm.provision "shell", path: "./provision/config_zabbix.sh"
 end
