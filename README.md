@@ -52,33 +52,32 @@ Services can be accessed by following URL's :
 
 2. Using UI :
   * Step 1 : Open https://vault.local:8200
-  (screenshot)
   * Step 2 : Login into Vault using token > Which you can find in /home/vagrant/keys. 
-  (screenshot)
+  ![Vault login screen](assets/images/vault-login.png)
   * Step 3 : Go to "Secret engines".
-  (screenshot)
+  ![](assets/images/vault-dashboard.png)
   * Step 4 : Click "Enable new engine" or choose existing one and click "Create secret".
-  (screenshot)
+  ![](assets/images/vault-enable-engine.png)
   * Step 5 : Set a path, input secret data and save.
-  (screenshot)
+  ![Vault secret creation](assets/images/vault-create-secret.png)
 
 ## 2. Jenkins
 ###  How to create a freestyle job
   * Step 1 : Open http://jenkins.local and login into Jenkins.
-  (screenshot)
+  ![](assets/images/jenkins-login.png)
   * Step 2 : Click "New item".
-  (screenshot)
+  ![](assets/images/jenkins-dashboard.png)
   * Step 3 : Enter a name and choose "Freestyle project".
-  (screenshot)
+  ![](assets/images/jenkins-job-creation.png)
   * Step 4 : Configure your job, starting with "Source code managnment".
-  (screenshot)
+  ![](assets/images/jenkins-job-ex.png)
   * Step 5 : Click save.
-  (screenshot)
 
 ## 3. Zabbix
 ### What is visible in Zabbix monitoring?
 Screenshot :
-(screenshot)
+![](assets/images/zabbix-host.png)
+![](assets/images/zabbix-items.png)
 explanation
 
 
