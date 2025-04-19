@@ -5,9 +5,9 @@ This project provisions a VM using Vagrant and sets up the following services:
 - **Zabbix** for VM and services status monitoring
 ---
 ## Prerequisites
-Vagrant - (https://developer.hashicorp.com/vagrant/install "v2.4.3")
-VirtualBox - (https://www.virtualbox.org/wiki/Downloads "7.0.12r159484 or higher")
-And, i hope that you have it, an Internet connection
+- Vagrant - (https://developer.hashicorp.com/vagrant/install "v2.4.3")
+- VirtualBox - (https://www.virtualbox.org/wiki/Downloads "7.0.12r159484 or higher")
+- And, i hope that you have it, an Internet connection
 ## How to launch the VM ?
 1. Access the cloned repository on your machine
 ```bash
