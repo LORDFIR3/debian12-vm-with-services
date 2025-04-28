@@ -5,7 +5,7 @@ This project provisions a VM using Vagrant and sets up the following services:
 - **Zabbix** for VM and services status monitoring
 ---
 ## Prerequisites
-- Vagrant - (https://developer.hashicorp.com/vagrant/install "v2.4.3")
+- Vagrant - (https://developer.hashicorp.com/vagrant/install "v2.4.3" or higher)
 - VirtualBox - (https://www.virtualbox.org/wiki/Downloads "7.0.12r159484 or higher")
 - And, i hope that you have it, an Internet connection
 ## How to launch the VM ?
@@ -20,6 +20,7 @@ vagrant up
 ---
 
 # How to access the services 
+> IMPORTANT : following url's will work only if you edit your /etc/hosts file, e.g : <vm-ip-address>  zabbix.local
 Services can be accessed by following URL's :
 - Vault - https://vault.local:8200
 - Jenkins - http://jenkins.local
@@ -78,6 +79,5 @@ Services can be accessed by following URL's :
 Screenshot :
 ![](assets/images/zabbix-host.png)
 ![](assets/images/zabbix-items.png)
-> explanation
 
 
