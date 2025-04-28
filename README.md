@@ -20,11 +20,11 @@ vagrant up
 ---
 
 # How to access the services 
-> IMPORTANT : following url's will work only if you edit your /etc/hosts file, e.g : <vm-ip-address>  zabbix.local
 Services can be accessed by following URL's :
 - Vault - https://vault.local:8200
 - Jenkins - http://jenkins.local
 - Zabbix - http://zabbix.local
+> IMPORTANT : url's will work only if you edit your /etc/hosts file, e.g : "vm-ip-address"  zabbix.local
 
 ---
 # Examples of services usage
