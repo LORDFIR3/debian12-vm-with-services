@@ -80,4 +80,4 @@ Screenshot :
 ![](assets/images/zabbix-host.png)
 ![](assets/images/zabbix-items.png)
 
-
+Zabbix monitoring the same vm it is running on and display basic server metrics (CPU load, RAM, disk usage) and services status (active/inactive).
